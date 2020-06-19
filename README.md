@@ -15,3 +15,6 @@ Datasets: csv file
 Methods: scrapping nba website with all the stats to retrieve database. 
 
 Requirements: Sckit-Learn, machine learning library, tableau and AWS
+
+![Farmers Market Finder Demo](1/1.gif)
+
