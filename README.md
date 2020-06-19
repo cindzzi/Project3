@@ -18,3 +18,4 @@ Requirements: Sckit-Learn, machine learning library, tableau and AWS
 
 ![](1.gif)
 
+![](2.gif)
