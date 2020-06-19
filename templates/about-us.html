@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<style>
+form {
+    margin: left;
+    width: 35%;
+}
+.result {
+    margin: auto;
+    width: 35%;
+    border: 1px solid #ccc;
+}
+.reference {
+  position: absolute;
+  top: 600px;
+  right: 0px;
+}
+
+</style>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Hello Visitors!</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css">
+
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="../static/css/fontawesome-all.min.css">
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="../static/css/swiper.min.css">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body class="about-us">
+    <header class="site-header">
+        <div class="header-bar">
+            <div class="container-fluid">
+                <div class="row align-items-center">
+                    <div class="col-10 col-lg-3">
+                        <h1 class="site-branding flex">
+                            <a href="/aboutus">P I A D A</a>
+                        </h1>
+                    </div>
+
+                    <div class="col-2 col-lg-9">
+                        <nav class="site-navigation">
+                            <div class="hamburger-menu d-lg-none">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div><!-- .hamburger-menu -->
+
+                            <ul>
+                                <li><a href="/">Home</a></li>
+                                <li><a href="/predict">Predict</a></li>
+                                <li><a href="https://public.tableau.com/profile/oluwatomisin.ayankoya#!/vizhome/NBASTATISTICS/Dashboard1?publish=yes">Vizualization</a></li>
+                                <li><a href="/aboutus">About us</a></li>
+                                <!-- <li><a href="#">About us</a></li> -->
+                                <li><a href="/goodbye.html"><i class="fas fa-search"></i></a></li>
+                            </ul><!-- flex -->
+                        </nav><!-- .site-navigation -->
+                    </div><!-- .col-12 -->
+                </div><!-- .row -->
+            </div><!-- container-fluid -->
+        </div><!-- header-bar -->
+    </header><!-- .site-header -->
+
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="entry-header">
+                        <h2 class="entry-title">Predict</h2>
+
+                        <ul class="breadcrumbs flex align-items-center">
+                            <li><a href="/">Home</a></li>
+                            <li>Predict</li>
+                        </ul><!-- .breadcrumbs -->
+                    </div><!-- .entry-header -->
+                </div><!-- .col-12 -->
+            </div><!-- .row -->
+        </div><!-- .container -->
+    </div><!-- .page-header -->
+    <div class="hero text-center">
+        <h1>NBA Prediction Model</h1>
+    </div>
+    <div class ="reference">
+        <h2>Reference</h2>
+        <img src="../static/images/ref.png">
+    </div>
+    <form action="{{ url_for('predict') }}" method="POST">
+        <fieldset>
+            <legend>Input values:</legend>
+            Team:
+            <input name="Team" type="number" required>
+            <br>
+            <br> Home:
+            <input name="Home_or_Away" type="number" required>
+            <br>
+            <br> Opponent:
+            <input name="Opponent" type="number" required>
+            <br> 
+            <br>Field_Goals_Percentage:
+            <input name="FieldGoals." type="number" required>
+            <br>
+            <br>Three_Points_Shots_Percentage:
+            <input name="X3PointShots." type="number" required>
+            <br>
+            <br>Opponent_Field_Goals_Percentage:
+            <input name="Opp.FieldGoals." type="number" required>
+            <br>
+            <br>Opponent_Three_Point_Shots_Percentage:
+            <input name="Opp.3PointShots." type="number" required>
+            <br>
+            <input type="submit">
+        </fieldset>
+    </form>
+    <br>
+    <div class="result" align="center">
+        {% if result %}
+            {% for variable, value in original_input.items() %}
+                <b>{{ variable }}</b> : {{ value }}
+            {% endfor %}
+            <br>
+            <br> Predicted Result:
+                <p style="font-size:50px">{{ result }}</p>
+        {% endif %}
+    </div>
+                      
+                     
+    <footer class="footer">
+        <span class="bottom">P I A D A</span>
+    </footer>
+     
+
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script> -->
+    
+
+    <script type='text/javascript' src='../static/js/jquery.js'></script>
+    <script type='text/javascript' src='../static/js/masonry.pkgd.min.js'></script>
+    <script type='text/javascript' src='../static/js/jquery.collapsible.min.js'></script>
+    <script type='text/javascript' src='../static/js/swiper.min.js'></script>
+    <script type='text/javascript' src='../static/js/jquery.countdown.min.js'></script>
+    <script type='text/javascript' src='../static/js/circle-progress.min.js'></script>
+    <script type='text/javascript' src='../static/js/jquery.countTo.min.js'></script>
+    <script type='text/javascript' src='../static/js/custom.js'></script>
+</body>
+</html>
